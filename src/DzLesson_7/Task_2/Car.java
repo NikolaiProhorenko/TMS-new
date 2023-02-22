@@ -1,4 +1,4 @@
-package DzLesson_7;
+package DzLesson_7.Task_2;
 
 public class Car {
     public String model;

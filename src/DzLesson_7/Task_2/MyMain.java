@@ -1,12 +1,14 @@
-package DzLesson_7;
+package DzLesson_7.Task_2;
 
-import static DzLesson_7.Car.getFastestCar;
-import static DzLesson_7.Car.getOldestCar;
+import DzLesson_7.Task_2.Car;
+
+import static DzLesson_7.Task_2.Car.getFastestCar;
+import static DzLesson_7.Task_2.Car.getOldestCar;
 
 public class MyMain {
     public static void main (String [] args){
 
-        Car [] car1 = {new Car("Lexus", "Red", 2022,250),
+        Car[] car1 = {new Car("Lexus", "Red", 2022,250),
                      new Car( "Mazda ","Blue" , 1999, 200),
                      new Car("Zhiguli", "Red", 2023, 300),
                      new Car("Opel","Blue", 2005,150)};
