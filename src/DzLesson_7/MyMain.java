@@ -13,7 +13,7 @@ public class MyMain {
         Car [] car2 = { new Car("BMW", "Yellow",2006,220),
                         new Car("Audi", "black",2008,199),
                         new Car("Ford","White",1995,160 ),
-                        new Car("Suzuki", "Grenn",1990,120)};
+                        new Car("Suzuki", "Grenn",1900,120)};
 
         System.out.println("The oldest car is: " + getOldestCar(car1, car2));
         System.out.println("The fastest car is: " + getFastestCar(car1, car2));
