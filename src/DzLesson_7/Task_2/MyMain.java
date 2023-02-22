@@ -7,7 +7,6 @@ import static DzLesson_7.Task_2.Car.getOldestCar;
 
 public class MyMain {
     public static void main (String [] args){
-
         Car[] car1 = {new Car("Lexus", "Red", 2022,250),
                      new Car( "Mazda ","Blue" , 1999, 200),
                      new Car("Zhiguli", "Red", 2023, 300),
@@ -20,6 +19,5 @@ public class MyMain {
         System.out.println("The oldest car is: " + getOldestCar(car1, car2));
         System.out.println("The fastest car is: " + getFastestCar(car1, car2));
         System.out.println();
-
     }
 }

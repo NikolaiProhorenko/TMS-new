@@ -19,8 +19,4 @@ public class Main {
             System.out.printf("Our triangle a=%d, b=%d, c=%d can't live\n",a,b,c);
         System.out.println();
     }
-
-
-
-
 }
