@@ -1,169 +1,72 @@
+import java.util.Locale;
+
+/* Написать программу со следующим функционалом:
+       На вход передать строку (будем считать, что это номер документа).
+       Номер документа имеет формат хххх-yyy-хххх-yyy-хуху, где x — это число,
+       а y — это буква.
+       1) Вывести на экран в одну строку два первых блока по 4 цифры.
+       2) Вывести на экран номер документа, но блоки из трех букв заменить
+       на *** (каждая буква заменятся на *).
+       3) Вывести на экран только одни буквы из номера документа в
+       формате yyy/yyy/y/y в нижнем регистре.
+       4) Вывести на экран буквы из номера документа в формате
+       "Letters:yyy/yyy/y/y" в верхнем регистре(реализовать с помощью
+       класса StringBuilder).
+       5) Проверить содержит ли номер документа последовательность abc и
+       вывети сообщение содержит или нет(причем, abc и ABC считается
+       одинаковой последовательностью).
+       6) Проверить начинается ли номер документа с последовательности 555.
+       7) Проверить заканчивается ли номер документа на
+       последовательность 1a2b.
+       Все эти методы реализовать в отдельном классе в статических методах,
+       которые на вход (входным параметром) будут принимать вводимую на
+       вход программы строку. */
 public class Main {
     public static void main(String[] args) {
-        numbers();
-        ourTriangle();
-        getNumbers();
-        sumPositiveNumber();
-        sumPositiveAndNegativeNumber();
-        maxNumbers();
-        programmer();
+        String document = "1111-abc-2222-bCb-1b2b";
+        System.out.println("Oridinal document: " + document);
+        paragraphOne(document);
+        paragraphTwo(document);
+        paragraphThree(document);
+        paragraphFour(document);
+        paragraphFive(document);
+        paragraphSix(document);
+        paragraphSewen(document);
     }
-
-    static void numbers() {
-
-        // задача №1 В переменную записываем число. Надо вывести на экран сколько в этом числе цифр
-        // и положительное оно или отрицательное. Например, "это однозначное положительное число".
-        // Достаточно будет определить, является ли число однозначным, "двухзначным или трехзначным и более.
-        int number = 415;
-
-        if (number == 0)
-            System.out.println("Our number: 0 " + number);
-
-        else if  (number<=-9 && number<0)
-            System.out.println("Number negative, unambiguous our number:: " + number);
-
-        else if (number<=-99 && number<=-10)
-            System.out.println("Number negative, two-digit our number:: " + number);
-
-        else if (number<=-999 && number<=-100)
-            System.out.println("Number negative, three-digit our number:: " + number);
-
-        else if (number>=0 && number<=9)
-            System.out.println("Number unambiguous our number:: " + number);
-
-        else if (number>=10 && number<=100)
-            System.out.println("Number two-digit our number: " + number);
-
-        else if (number>=100 && number<=999)
-            System.out.println("Number three-digit our number: " + number);
-        System.out.println();
+    public static void paragraphOne(String document){
+        String blocs[] = document.split("-");
+        System.out.println("\n"+blocs[0] + "-" + blocs[2]);
     }
-
-    static void ourTriangle()
-    {
-        //Треугольник существует только тогда, когда сумма любых двух его сторон
-        //больше третьей. Определить существует ли такой треугольник. Дано: a, b, c –
-        //стороны предполагаемого треугольника. Требуется сравнить длину каждого
-        //отрезка-стороны с суммой двух других. Если хотя бы в одном случае отрезок
-        //окажется больше суммы двух других, то треугольника с такими сторонами не
-        //существует.
-
-        int a=5;
-        int b=6;
-        int c=11;
-
-        if ((a+b>=c) && (a+c>=b) && (b+c>=a))
-            System.out.printf("Our triangle a=%d, b=%d, c=%d may live\n",a,b,c);
-        else
-            System.out.printf("Our triangle a=%d, b=%d, c=%d can't live\n",a,b,c);
-        System.out.println();
+    public static void paragraphTwo(String document) {
+        String blocs[] = document.split("-");
+        System.out.print(blocs[0]+ "-***-");
+        System.out.print(blocs[2]+ "-***-");
+        System.out.println(blocs[4]);
     }
-
-    static void getNumbers()
-    {
-        //Дано целое число. Если оно является положительным, то прибавить к нему 1.
-        //Если отрицательным, то вычесть из него 2. Если нулевым, то заменить его на 10. Вывести полученное число.
-
-        int number = 5;
-        if (number > 0) {
-            number++;
-            System.out.println("Get number: " + number);
-        } else if (number < 0) {
-            number -= 2;
-            System.out.println("Get number: " + number);
-        } else {
-            number = 10;
-            System.out.println("Get number: " + number);
-        }
-        System.out.println();
-
-
+    public static void paragraphThree(String document){
+        String blocs[] = document.split("-");
+        String letter = (blocs[1]+ " / " + blocs[3]+ " / " +blocs[4].charAt(1) + " / " + blocs[4].charAt(3));
+        System.out.println(letter);
     }
-    static void sumPositiveNumber()
-    //Даны 3 целые числа. Найти количество положительных чисел в исходном наборе.
-    {
-        int number1 = 5;
-        int number2 = -6;
-        int number3 = 1;
-        int sum =0;
-
-        if (number1 >0) {
-            sum ++;
-        }
-        if (number2 >0) {
-            sum ++;
-        };
-        if (number3>0) {
-            sum++;
-        };
-        System.out.println("Summa our numbers: " + sum);
-        System.out.println();
-
-
-
+    public static void paragraphFour(String document){
+        String blocs[] = document.split("-");
+        StringBuilder four= new StringBuilder("Letters: ");
+        four.append(blocs[1].toUpperCase()+ " / ");
+        four.append(blocs[3].toUpperCase()+ " / ");
+        four.append(blocs[4].toUpperCase().charAt(1)+" / ");
+        four.append(blocs[4].toUpperCase().charAt(3)+" / ");
+        System.out.println(four);
     }
-
-    static void sumPositiveAndNegativeNumber()
-    //Даны 3 целых числа. Найти количество положительных и отрицательных
-    //чисел в исходном наборе.
-    {
-
-        int number1 = 5;
-        int number2 = -6;
-        int number3 = 1;
-        int sumPositive = 0;
-        int sumNegative = 0;
-
-        if (number1 >0) {
-            sumPositive++;
-        } else {
-            sumNegative++;
-        }
-        if (number2 >0) {
-            sumPositive++;
-        } else {
-            sumNegative++;
-        }
-        if (number3>0) {
-            sumPositive++;
-        } else {
-            sumNegative++;
-        }
-
-        System.out.println("Sum our positive numbers: " + sumPositive);
-        System.out.println("Sum our negative numbers: " + sumNegative);
-        System.out.println();
+    public static void paragraphFive (String document){
+        boolean contains = document.toLowerCase().contains("abc");
+        System.out.println(contains? "Document contains 'abc or ABC'" : "Document not contains 'abc or ABC'");
     }
-    static void maxNumbers()
-    {
-        //Даны 2 числа. Вывести большее из них.
-        int number1 = 555;
-        int number2 = 85;
-
-        System.out.println("Biggest number is: " +((number1 > number2) ? number1: number2));
-        System.out.println();
+    public static void paragraphSix (String document){
+        boolean start = document.startsWith("555");
+        System.out.println(start? "Document start from '555'" : "Document don't start from '555'");
     }
-    static void programmer()
-    // (Дополнительно) В переменную записываете количество программистов. В
-    //зависимости от количества программистов необходимо вывести правильно
-    //окончание. Например:
-    //• 2 программиста
-    //• 1 программиста
-    //• 10 программистов
-    //• и т.д
-    {
-        int programmer = 11;
-        if (programmer==1)
-        {System.out.println("У нас один программист");}
-        else if (programmer > 1 && programmer <= 5)
-        {System.out.printf("У нас %d программиста", programmer);}
-        else if (programmer >5 && programmer <=20 )
-        {System.out.printf("У нас %d программистов", programmer);}
-        else if (programmer == 21 )
-        {System.out.printf("У нас %d программист", programmer);}
-        else if (programmer >21 && programmer <=30 )
-        {System.out.printf("У нас %d программиста", programmer);}
-        else if (programmer >31 )
-        {System.out.print("Столько программистов вместе не собираються =) ");}
+    public static void paragraphSewen (String document) {
+        boolean end = document.endsWith("1a2b");
+        System.out.println(end? "Document end from '1a2b'" : "Document don't end from '1a2b'");
     }
 }
