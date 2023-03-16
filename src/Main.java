@@ -13,7 +13,7 @@ import java.util.Locale;
        "Letters:yyy/yyy/y/y" в верхнем регистре(реализовать с помощью
        класса StringBuilder).
        5) Проверить содержит ли номер документа последовательность abc и
-       вывети сообщение содержит или нет(причем, abc и ABC считается
+       вывести сообщение содержит или нет(причем, abc и ABC считается
        одинаковой последовательностью).
        6) Проверить начинается ли номер документа с последовательности 555.
        7) Проверить заканчивается ли номер документа на
@@ -24,7 +24,7 @@ import java.util.Locale;
 public class Main {
     public static void main(String[] args) {
         String document = "1111-abc-2222-bCb-1b2b";
-        System.out.println("Oridinal document: " + document);
+        System.out.println("\n"+ "Original document: " + document);
         paragraphOne(document);
         paragraphTwo(document);
         paragraphThree(document);
@@ -34,27 +34,27 @@ public class Main {
         paragraphSewen(document);
     }
     public static void paragraphOne(String document){
-        String blocs[] = document.split("-");
-        System.out.println("\n"+blocs[0] + "-" + blocs[2]);
+        String blocks[] = document.split("-");
+        System.out.println("\n"+blocks[0] + "-" + blocks[2]);
     }
     public static void paragraphTwo(String document) {
-        String blocs[] = document.split("-");
-        System.out.print(blocs[0]+ "-***-");
-        System.out.print(blocs[2]+ "-***-");
-        System.out.println(blocs[4]);
+        String blocks[] = document.split("-");
+        System.out.print(blocks[0]+ "-***-");
+        System.out.print(blocks[2]+ "-***-");
+        System.out.println(blocks[4]);
     }
     public static void paragraphThree(String document){
-        String blocs[] = document.split("-");
-        String letter = (blocs[1]+ " / " + blocs[3]+ " / " +blocs[4].charAt(1) + " / " + blocs[4].charAt(3));
+        String blocks[] = document.split("-");
+        String letter = (blocks[1]+ " / " + blocks[3]+ " / " +blocks[4].charAt(1) + " / " + blocks[4].charAt(3));
         System.out.println(letter);
     }
     public static void paragraphFour(String document){
-        String blocs[] = document.split("-");
+        String blocks[] = document.split("-");
         StringBuilder four= new StringBuilder("Letters: ");
-        four.append(blocs[1].toUpperCase()+ " / ");
-        four.append(blocs[3].toUpperCase()+ " / ");
-        four.append(blocs[4].toUpperCase().charAt(1)+" / ");
-        four.append(blocs[4].toUpperCase().charAt(3)+" / ");
+        four.append(blocks[1].toUpperCase()+ " / ");
+        four.append(blocks[3].toUpperCase()+ " / ");
+        four.append(blocks[4].toUpperCase().charAt(1)+" / ");
+        four.append(blocks[4].toUpperCase().charAt(3)+" / ");
         System.out.println(four);
     }
     public static void paragraphFive (String document){
